@@ -15,8 +15,8 @@ print('Добро пожаловать:', a)
 после чего выведите на экран общий вес посылки.
 
 
-<souvenir = int(input('Введите количество сувениров:'))>
-<A_trinket = int(input('Введите количество безделушек:'))>
+souvenir = int(input('Введите количество сувениров:'))
+A_trinket = int(input('Введите количество безделушек:'))
 
 souvenir_weight = 0.75
 A_trinket_weight = 0.112
@@ -88,35 +88,27 @@ print("Результат возведения числа", exponentiation)
 def calculate_change(change_amount):
     coins = [500, 200, 100, 50, 10, 5, 1]
     change = {}
-
     for coin in coins:
         if change_amount >= coin:
             count = change_amount // coin
             change[coin] = count
             change_amount -= coin * count
-
     return change
-
-def print_change(change):                            #
-    for coin, count in change.items():               # я понимал что мне нужны были
-        if coin >= 100:                              # if и else
-            print(f"{coin // 100} рублей: {count}")  # но не мог собразить как конкретно их написать
-        else:                                        # бот помог, дал немного другой вариант
-            print(f"{coin} копеек: {count}")         # я его переделал по нужный мне
-
+def print_change(change):                            
+    for coin, count in change.items():               
+        if coin >= 100:                              
+            print(f"{coin // 100} рублей: {count}")  
+        else:                                        
+            print(f"{coin} копеек: {count}")         
 def main():
     try:
         change_amount = int(input("Введите сумму сдачи в копейках: "))
         if change_amount < 0:
             print("Сумма сдачи не может быть отрицательной.")
             return
-
         change = calculate_change(change_amount)
-
-
         print("Сдача:")
         print_change(change)
-
     except ValueError:
         print("Пожалуйста, введите корректное числовое значение.")
 
